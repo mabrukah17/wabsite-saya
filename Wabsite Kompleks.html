@@ -1,0 +1,1496 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>My Personal Space</title>
+
+<!-- FONT -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================
+   GLOBAL
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Inter",sans-serif;
+    color:#eeeeee;
+    background:#101010;
+    overflow-x:hidden;
+}
+
+/* GRAPHITE BACKGROUND */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-3;
+
+    background:
+    radial-gradient(
+        circle at 15% 20%,
+        rgba(255,255,255,.09),
+        transparent 25%
+    ),
+    radial-gradient(
+        circle at 85% 80%,
+        rgba(150,150,150,.08),
+        transparent 30%
+    ),
+    linear-gradient(
+        135deg,
+        #080808,
+        #1c1c1c,
+        #0c0c0c
+    );
+}
+
+/* GRAIN */
+
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    opacity:.035;
+    z-index:1000;
+
+    background-image:
+    url("https://grainy-gradients.vercel.app/noise.svg");
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+nav{
+    position:fixed;
+    top:20px;
+    left:50%;
+    transform:translateX(-50%);
+
+    width:90%;
+    max-width:1050px;
+
+    padding:14px 22px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    background:rgba(25,25,25,.72);
+    border:1px solid rgba(255,255,255,.12);
+
+    backdrop-filter:blur(20px);
+
+    border-radius:50px;
+
+    z-index:999;
+}
+
+.logo{
+    font-size:15px;
+    font-weight:700;
+    letter-spacing:4px;
+}
+
+.nav-links{
+    display:flex;
+    list-style:none;
+    gap:28px;
+}
+
+.nav-links a{
+    color:#999;
+    font-size:12px;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#fff;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    padding:120px 20px 80px;
+}
+
+.hero-content{
+    max-width:850px;
+}
+
+.profile{
+    width:155px;
+    height:155px;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+    padding:6px;
+
+    border:1px solid #555;
+
+    background:#1d1d1d;
+
+    box-shadow:
+    0 0 40px rgba(255,255,255,.08);
+
+    animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+
+}
+
+.subtitle{
+    margin-top:30px;
+
+    color:#888;
+
+    letter-spacing:5px;
+
+    font-size:11px;
+
+    text-transform:uppercase;
+}
+
+.hero h1{
+    font-family:"Playfair Display",serif;
+
+    font-size:clamp(50px,9vw,100px);
+
+    line-height:.95;
+
+    margin-top:18px;
+
+    background:
+    linear-gradient(
+        120deg,
+        #fff,
+        #777,
+        #fff
+    );
+
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.hero-description{
+    max-width:600px;
+
+    margin:30px auto;
+
+    color:#999;
+
+    line-height:1.9;
+
+    font-size:14px;
+}
+
+.buttons{
+    display:flex;
+    justify-content:center;
+
+    gap:12px;
+
+    flex-wrap:wrap;
+
+    margin-top:30px;
+}
+
+.btn{
+    padding:13px 24px;
+
+    border:1px solid #444;
+
+    border-radius:30px;
+
+    color:#ddd;
+
+    text-decoration:none;
+
+    font-size:13px;
+
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-4px);
+
+    border-color:#888;
+
+    box-shadow:
+    0 10px 30px rgba(255,255,255,.08);
+}
+
+.btn.primary{
+    background:#eee;
+
+    color:#111;
+}
+
+/* =========================
+   SECTION
+========================= */
+
+section{
+    width:90%;
+    max-width:1100px;
+
+    margin:auto;
+
+    padding:100px 0;
+}
+
+.section-label{
+    color:#666;
+
+    font-size:11px;
+
+    letter-spacing:5px;
+}
+
+.section-title{
+    font-family:"Playfair Display",serif;
+
+    font-size:50px;
+
+    margin-top:10px;
+
+    margin-bottom:40px;
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+.about-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    1.3fr
+    .7fr;
+
+    gap:20px;
+}
+
+.card{
+
+    padding:35px;
+
+    border-radius:25px;
+
+    border:1px solid #303030;
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(255,255,255,.08),
+        rgba(255,255,255,.025)
+    );
+
+    backdrop-filter:blur(15px);
+
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-7px);
+
+    border-color:#555;
+}
+
+.card h3{
+    margin-bottom:18px;
+
+    font-size:18px;
+}
+
+.card p{
+    color:#999;
+
+    line-height:1.9;
+
+    font-size:14px;
+}
+
+/* =========================
+   INFO
+========================= */
+
+.info-list{
+    display:flex;
+
+    flex-direction:column;
+
+    gap:16px;
+}
+
+.info{
+    display:flex;
+
+    justify-content:space-between;
+
+    padding-bottom:13px;
+
+    border-bottom:1px solid #303030;
+
+    font-size:13px;
+}
+
+.info span:first-child{
+    color:#666;
+}
+
+.info span:last-child{
+    color:#ddd;
+}
+
+/* =========================
+   SKILLS
+========================= */
+
+.skills{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    margin-top:20px;
+}
+
+.skill{
+
+    padding:10px 16px;
+
+    border:1px solid #3b3b3b;
+
+    background:#181818;
+
+    border-radius:30px;
+
+    color:#aaa;
+
+    font-size:12px;
+
+    transition:.3s;
+}
+
+.skill:hover{
+    background:#303030;
+
+    color:white;
+
+    transform:translateY(-3px);
+}
+
+/* =========================
+   TIMELINE
+========================= */
+
+.timeline{
+    border-left:1px solid #444;
+
+    margin-left:10px;
+
+    padding-left:30px;
+}
+
+.timeline-item{
+
+    position:relative;
+
+    margin-bottom:40px;
+}
+
+.timeline-item::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:9px;
+    height:9px;
+
+    background:#aaa;
+
+    border-radius:50%;
+
+    left:-35px;
+
+    top:6px;
+
+    box-shadow:
+    0 0 15px rgba(255,255,255,.3);
+}
+
+.timeline-year{
+
+    color:#666;
+
+    font-size:11px;
+
+    letter-spacing:2px;
+}
+
+.timeline h3{
+    margin:8px 0;
+}
+
+.timeline p{
+    color:#888;
+
+    font-size:13px;
+
+    line-height:1.8;
+}
+
+/* =========================
+   PROJECTS
+========================= */
+
+.projects{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:18px;
+}
+
+.project{
+
+    min-height:270px;
+
+    padding:28px;
+
+    border-radius:25px;
+
+    border:1px solid #333;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:flex-end;
+
+    overflow:hidden;
+
+    position:relative;
+
+    background:
+    linear-gradient(
+        145deg,
+        #333,
+        #111
+    );
+
+    transition:.4s;
+}
+
+.project:hover{
+
+    transform:
+    translateY(-8px)
+    scale(1.02);
+
+    border-color:#777;
+}
+
+.project-number{
+
+    color:#666;
+
+    font-size:11px;
+
+    letter-spacing:3px;
+
+    margin-bottom:10px;
+}
+
+.project h3{
+    font-size:22px;
+}
+
+.project p{
+    margin-top:8px;
+
+    color:#888;
+
+    font-size:12px;
+}
+
+/* =========================
+   LINKS
+========================= */
+
+.links{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:15px;
+}
+
+.link-card{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:22px;
+
+    border-radius:20px;
+
+    border:1px solid #303030;
+
+    background:#181818;
+
+    text-decoration:none;
+
+    transition:.4s;
+}
+
+.link-card:hover{
+
+    background:#242424;
+
+    transform:translateX(5px);
+
+    border-color:#666;
+}
+
+.link-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+}
+
+.link-icon{
+
+    width:48px;
+
+    height:48px;
+
+    border-radius:15px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#292929;
+
+    color:#ddd;
+
+    font-size:18px;
+}
+
+.link-card h3{
+    font-size:14px;
+
+    margin-bottom:5px;
+}
+
+.link-card p{
+    font-size:11px;
+
+    color:#666;
+}
+
+.arrow{
+    color:#666;
+
+    font-size:20px;
+}
+
+/* =========================
+   GALLERY
+========================= */
+
+.gallery{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:15px;
+}
+
+.gallery img{
+
+    width:100%;
+
+    height:250px;
+
+    object-fit:cover;
+
+    border-radius:20px;
+
+    filter:grayscale(100%);
+
+    border:1px solid #333;
+
+    transition:.5s;
+}
+
+.gallery img:hover{
+
+    filter:grayscale(0%);
+
+    transform:scale(1.03);
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact{
+
+    text-align:center;
+
+    padding:80px 20px;
+
+    border-radius:30px;
+
+    border:1px solid #333;
+
+    background:
+    linear-gradient(
+        135deg,
+        #292929,
+        #111
+    );
+}
+
+.contact h2{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:50px;
+}
+
+.contact p{
+
+    color:#777;
+
+    margin:15px auto 30px;
+
+    max-width:500px;
+
+    line-height:1.8;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+
+    text-align:center;
+
+    padding:60px 20px;
+
+    color:#555;
+
+    font-size:11px;
+
+    letter-spacing:1px;
+}
+
+/* =========================
+   SCROLL ANIMATION
+========================= */
+
+.reveal{
+
+    opacity:0;
+
+    transform:translateY(50px);
+
+    transition:
+    opacity .8s ease,
+    transform .8s ease;
+}
+
+.reveal.active{
+
+    opacity:1;
+
+    transform:translateY(0);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:800px){
+
+    nav{
+        justify-content:center;
+    }
+
+    .nav-links{
+        display:none;
+    }
+
+    .about-grid{
+        grid-template-columns:1fr;
+    }
+
+    .projects{
+        grid-template-columns:1fr;
+    }
+
+    .links{
+        grid-template-columns:1fr;
+    }
+
+    .gallery{
+        grid-template-columns:1fr;
+    }
+
+    section{
+        padding:70px 0;
+    }
+
+    .section-title{
+        font-size:40px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<nav>
+
+    <div class="logo">
+        AK
+    </div>
+
+    <ul class="nav-links">
+
+        <li>
+            <a href="#home">HOME</a>
+        </li>
+
+        <li>
+            <a href="#about">ABOUT</a>
+        </li>
+
+        <li>
+            <a href="#education">EDUCATION</a>
+        </li>
+
+        <li>
+            <a href="#projects">PROJECTS</a>
+        </li>
+
+        <li>
+            <a href="#links">LINKS</a>
+        </li>
+
+        <li>
+            <a href="#contact">CONTACT</a>
+        </li>
+
+    </ul>
+
+</nav>
+
+
+
+<!-- =========================
+     HOME
+========================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <!-- GANTI DENGAN FOTO KAMU -->
+
+        <img
+            src="foto.jpg"
+            class="profile"
+            alt="Foto Profil"
+        >
+
+        <div class="subtitle">
+            PERSONAL WEBSITE
+        </div>
+
+        <h1>
+            Sayidah<br>
+            Mabrukah
+        </h1>
+
+        <p class="hero-description">
+
+            Welcome to my little corner of the internet.
+            This website contains a little story about me,
+            my interests, my journey, my projects,
+            and things that I love.
+
+        </p>
+
+        <div class="buttons">
+
+            <a
+                href="#about"
+                class="btn primary"
+            >
+                Explore My World
+            </a>
+
+            <a
+                href="#links"
+                class="btn"
+            >
+                Find Me Online
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section id="about" class="reveal">
+
+    <div class="section-label">
+        01 — WHO I AM
+    </div>
+
+    <h2 class="section-title">
+        About Me
+    </h2>
+
+
+    <div class="about-grid">
+
+
+        <div class="card">
+
+            <h3>
+                A little introduction.
+            </h3>
+
+            <p>
+
+                Halo! Saya Sayidah Mabrukah.
+                Website ini saya buat sebagai ruang
+                pribadi untuk memperkenalkan diri,
+                membagikan perjalanan, minat,
+                aktivitas, dan berbagai hal yang
+                sedang saya kerjakan.
+
+                <br><br>
+
+                Saya memiliki ketertarikan terhadap
+                fisika, teknologi, penelitian,
+                desain website, serta berbagai
+                hal baru yang dapat menambah
+                pengalaman dan pengetahuan.
+
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>
+                Personal Information
+            </h3>
+
+            <div class="info-list">
+
+                <div class="info">
+
+                    <span>Name</span>
+
+                    <span>sayidah mabrukah</span>
+
+                </div>
+
+                <div class="info">
+
+                    <span>Field</span>
+
+                    <span>Medical Physics</span>
+
+                </div>
+
+                <div class="info">
+
+                    <span>Location</span>
+
+                    <span>Indonesia</span>
+
+                </div>
+
+                <div class="info">
+
+                    <span>Status</span>
+
+                    <span>Student</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <br><br>
+
+
+    <div class="card">
+
+        <h3>
+            Things I Like
+        </h3>
+
+        <div class="skills">
+
+            <div class="skill">
+                Physics
+            </div>
+
+            <div class="skill">
+                Medical Physics
+            </div>
+
+            <div class="skill">
+                Research
+            </div>
+
+            <div class="skill">
+                Technology
+            </div>
+
+            <div class="skill">
+                Web Design
+            </div>
+
+            <div class="skill">
+                Photography
+            </div>
+
+            <div class="skill">
+                Learning
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     EDUCATION
+========================= -->
+
+<section id="education" class="reveal">
+
+    <div class="section-label">
+        02 — MY JOURNEY
+    </div>
+
+    <h2 class="section-title">
+        Education
+    </h2>
+
+
+    <div class="timeline">
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-year">
+                2026 — PRESENT
+            </div>
+
+            <h3>
+                Universitas Hasanuddin
+            </h3>
+
+            <p>
+                Department of Physics —
+                Medical Physics.
+            </p>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-year">
+                PREVIOUS
+            </div>
+
+            <h3>
+                My Previous Education
+            </h3>
+
+            <p>
+                MA Putri DDI Mangkoso.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     PROJECTS
+========================= -->
+
+<section id="projects" class="reveal">
+
+    <div class="section-label">
+        04 — MY WORK
+    </div>
+
+    <h2 class="section-title">
+        Projects
+    </h2>
+
+
+    <div class="projects">
+
+
+        <div class="project">
+
+            <div class="project-number">
+                PROJECT 01
+            </div>
+
+            <h3>
+                Medical Physics
+            </h3>
+
+           
+        </div>
+
+
+        <div class="project">
+
+            <div class="project-number">
+                PROJECT 02
+            </div>
+
+            <h3>
+                Research
+            </h3>
+
+
+        </div>
+
+
+        <div class="project">
+
+            <div class="project-number">
+                PROJECT 03
+            </div>
+
+            <h3>
+                Web Design
+            </h3>
+
+           
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     LINKS
+========================= -->
+
+<section id="links" class="reveal">
+
+    <div class="section-label">
+        06 — FIND ME
+    </div>
+
+    <h2 class="section-title">
+        My Links
+    </h2>
+
+
+    <div class="links">
+
+
+        <!-- INSTAGRAM -->
+
+        <a
+            href="https://instagram.com/sydh.mbrkh"
+            target="_blank"
+            class="link-card"
+        >
+
+            <div class="link-left">
+
+                <div class="link-icon">
+                    ◎
+                </div>
+
+                <div>
+
+                    <h3>
+                        Instagram
+                    </h3>
+
+                    <p>
+                        My daily moments
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="arrow">
+                ↗
+            </div>
+
+        </a>
+
+
+        <!-- TIKTOK -->
+
+        <a
+            href="https://tiktok.com/goodvibez.sm"
+            target="_blank"
+            class="link-card"
+        >
+
+            <div class="link-left">
+
+                <div class="link-icon">
+                    ♪
+                </div>
+
+                <div>
+
+                    <h3>
+                        TikTok
+                    </h3>
+
+                    <p>
+                        Short videos & moments
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="arrow">
+                ↗
+            </div>
+
+        </a>
+
+
+        <!-- YOUTUBE -->
+
+        <a
+            href="https://youtube.com/sayidah mabrukah"
+            target="_blank"
+            class="link-card"
+        >
+
+            <div class="link-left">
+
+                <div class="link-icon">
+                    ▶
+                </div>
+
+                <div>
+
+                    <h3>
+                        YouTube
+                    </h3>
+
+                    <p>
+                        Videos & content
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="arrow">
+                ↗
+            </div>
+
+        </a>
+
+      
+
+        <!-- LINKEDIN -->
+
+        <a
+            href="https://linkedin.com/sayidah mabrukah"
+            target="_blank"
+            class="link-card"
+        >
+
+            <div class="link-left">
+
+                <div class="link-icon">
+                    in
+                </div>
+
+                <div>
+
+                    <h3>
+                        LinkedIn
+                    </h3>
+
+                    <p>
+                        Professional profile
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="arrow">
+                ↗
+            </div>
+
+        </a>
+
+
+        <!-- EMAIL -->
+
+        <a
+            href="mailto:sayidahmabrukah@gmail.com"
+            class="link-card"
+        >
+
+            <div class="link-left">
+
+                <div class="link-icon">
+                    @
+                </div>
+
+                <div>
+
+                    <h3>
+                        Email
+                    </h3>
+
+                    <p>
+                        Send me an email
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="arrow">
+                ↗
+            </div>
+
+        </a>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section id="contact" class="reveal">
+
+    <div class="contact">
+
+        <h2>
+            Let's Connect.
+        </h2>
+
+        <p>
+
+            Thank you for visiting my personal website.
+            If you want to connect, collaborate,
+            or simply say hello, feel free to reach me.
+
+        </p>
+
+        <a
+            href="mailto:sayidahmabrukah@gmail.com"
+            class="btn primary"
+        >
+            Contact Me
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    © 2026 Sayidah Mabrukah
+
+    <br><br>
+
+    Personal Website · Graphite Aesthetic
+
+</footer>
+
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+/* SCROLL REVEAL */
+
+const reveals =
+document.querySelectorAll(".reveal");
+
+function revealOnScroll(){
+
+    reveals.forEach(element => {
+
+        const top =
+        element.getBoundingClientRect().top;
+
+        const screen =
+        window.innerHeight;
+
+        if(top < screen - 100){
+
+            element.classList.add("active");
+
+        }
+
+    });
+
+}
+
+window.addEventListener(
+    "scroll",
+    revealOnScroll
+);
+
+revealOnScroll();
+
+
+/* NAVBAR SHADOW */
+
+window.addEventListener(
+    "scroll",
+    () => {
+
+        const nav =
+        document.querySelector("nav");
+
+        if(window.scrollY > 50){
+
+            nav.style.boxShadow =
+            "0 10px 40px rgba(0,0,0,.4)";
+
+        }else{
+
+            nav.style.boxShadow = "none";
+
+        }
+
+    }
+);
+
+</script>
+
+
+</body>
+</html>
